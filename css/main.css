@@ -153,18 +153,27 @@ header {
     max-height: 250px;
 }
 
+#sticker-drawer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
 .sticker-img {
     height: 100px;
 }
 
-.sticker {
-    cursor: grab;
+.sticker-spot {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: auto;
 }
 
 .draggable {
     position: relative;
     z-index: 9;
-    text-align: center;
     touch-action: none;
     user-select: none;
   }
@@ -181,7 +190,7 @@ header {
   }
 
   .dropzone {
-    border: dashed 4px transparent;
+    /* border: dashed 4px transparent; */
     transition: background-color 0.3s;
   }
   
@@ -191,8 +200,9 @@ header {
   
   .drop-target {
     background-color: #29e;
-    border-color: #fff;
-    border-style: solid;
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+    width: 375px;
   }
   
   .drag-drop {

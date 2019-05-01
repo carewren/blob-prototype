@@ -23,7 +23,7 @@
 <header></header>
 <div id="screen" >
 
-    <div id="sticker-layer" class="stack dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="sticker-layer" class="stack dropzone"></div>
 
     <div id="mood" class="stack">
         <svg width="375" height="600" viewBox="100 100 375 600" xmlns="http://www.w3.org/2000/svg">
@@ -39,11 +39,14 @@
 
         <div class="slider" id="slider-color-picker"></div>
 
-        <div id="sticker-picker" class="slider" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="sticker-picker" class="slider">
+            <div id="sticker-drawer">
+              <div class="sticker-spot dropzone"><div class="draggable"><img id="sticker-worried-img" class="sticker-img" src="img/sticker-worried.png" alt="worried face"></div></div>
 
-            <div class="draggable"><img id="sticker-rain-img" class="sticker-img" src="img/sticker-rain.png" draggable="true" ondragstart="drag(event)" alt="rain"></div>
+              <div class="sticker-spot dropzone"><div class="draggable"><img id="sticker-sad-img" class="sticker-img" src="img/sticker-sad.png" alt="sad face"></div></div>
 
-            <div class="draggable"><img id="sticker-sad-img" class="sticker-img" src="img/sticker-sad.png" draggable="true" ondragstart="drag(event)" alt="sad face"></div>
+              <div class="sticker-spot dropzone"><div class="draggable"><img id="sticker-content-img" class="sticker-img" src="img/sticker-content.png" alt="content face"></div></div>
+          </div>
         </div>
     </div>
 
