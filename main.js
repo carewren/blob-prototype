@@ -1,3 +1,4 @@
+// import blobs from "blobs";
 
 var blob = document.getElementById('blob');
 
@@ -10,6 +11,21 @@ var colorSlider = document.getElementById('slider-color-picker');
 var shapeSlider = document.getElementById('slider-shape-picker');
 var stickerDrawer = document.getElementById('sticker-picker');
 
+//////////////////////////////////
+// this creates the BLOB  //
+//////////////////////////////////
+
+var size = 375;
+var complexity = .1;
+var contrast = .1;
+var color = "#7bdcb5";
+
+var options = '{size: ' + size + ', complexity: ' + complexity + ', contrast: ' + contrast + ', color: "' + color + '", stroke: { width: 0, color: "black",}, guides: false, seed: "1234",}';
+
+var parsedOptions = eval("(" + options + ")");
+var svg = blobs(parsedOptions);   
+
+mood.innerHTML = svg;
 
 //////////////////////////////////
 // this controls the BLOB COLOR //
