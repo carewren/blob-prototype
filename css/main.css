@@ -13,7 +13,7 @@
    ========================================================================== */
 
    html {
-    background: #aaa;
+    background: #f3f3f3;
     color: #222;
     font-size: 1em;
     line-height: 1.4;
@@ -100,16 +100,19 @@ textarea {
 
 header {
     height: 25px;
-    background: #aaa;
+    background: #f3f3f3;
 }   
 
 #screen {
     background: #fff;
-    box-shadow: 5px 10px #888888;
-    margin: auto;
+    box-shadow: 5px 5px 10px 1px rgba(150, 150, 150, .2);
+        margin: auto;
     /* padding: 10px; */
     width:  375px;
     height: 812px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    bottom: 0;
 }
 
 #controls {
@@ -128,6 +131,7 @@ header {
     padding: 15px 0px 0px 0px;
     display: flex;
     background: #f8f8f8;
+    
 }
 
 .nav-icon {

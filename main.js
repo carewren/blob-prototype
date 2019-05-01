@@ -1,14 +1,3 @@
-// import blobs from "blobs";
-
-var navColor = document.getElementById('color');
-var navShape = document.getElementById('shape');
-var navSticker = document.getElementById('sticker');
-var navSave = document.getElementById('save');
-
-var colorSlider = document.getElementById('slider-color-picker');
-var shapeSlider = document.getElementById('slider-shape-picker');
-var stickerDrawer = document.getElementById('sticker-picker');
-
 //////////////////////////////////
 // this creates the BLOB  //
 //////////////////////////////////
@@ -276,6 +265,15 @@ interact('.dropzone').dropzone({
 //////////////////////////////////////////
 // this controls the NAVIGATION BUTTONS //
 //////////////////////////////////////////
+
+var navColor = document.getElementById('color');
+var navShape = document.getElementById('shape');
+var navSticker = document.getElementById('sticker');
+var navSave = document.getElementById('save');
+
+var colorSlider = document.getElementById('slider-color-picker');
+var shapeSlider = document.getElementById('slider-shape-picker');
+var stickerDrawer = document.getElementById('sticker-picker');
 
 navShape.addEventListener("click", () => {
     if (navColor.style.display === "none") {
