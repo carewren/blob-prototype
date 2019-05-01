@@ -1,7 +1,5 @@
 // import blobs from "blobs";
 
-var blob = document.getElementById('blob');
-
 var navColor = document.getElementById('color');
 var navShape = document.getElementById('shape');
 var navSticker = document.getElementById('sticker');
@@ -16,11 +14,11 @@ var stickerDrawer = document.getElementById('sticker-picker');
 //////////////////////////////////
 
 var size = 375;
-var complexity = .1;
-var contrast = .1;
-var color = "#7bdcb5";
+var complexity = 0.1;
+var contrast = 0.1;
+var blobColor = "#7bdcb5";
 
-var options = '{size: ' + size + ', complexity: ' + complexity + ', contrast: ' + contrast + ', color: "' + color + '", stroke: { width: 0, color: "black",}, guides: false, seed: "1234",}';
+var options = '{size: ' + size + ', complexity: ' + complexity + ', contrast: ' + contrast + ', color: "' + blobColor + '", stroke: { width: 0, color: "black",}, guides: false, seed: "1234",}';
 
 var parsedOptions = eval("(" + options + ")");
 var svg = blobs(parsedOptions);   
@@ -45,7 +43,7 @@ var num2hex = rgb => {
       .join('');
   };
 
-  var rgb = [100, 0, 0];
+  var rgb = [123, 220, 181];
   var colors = ['red', 'green', 'blue'];
 
   var gColorPicker = d3
@@ -75,7 +73,16 @@ var num2hex = rgb => {
       )
       .on('onchange', num => {
         rgb[i] = num;
-        blob.style.fill = `#${num2hex(rgb)}`;
+        blobColor = `#${num2hex(rgb)}`;
+
+        options = '{size: ' + size + ', complexity: ' + complexity + ', contrast: ' + contrast + ', color: "' + blobColor + '", stroke: { width: 0, color: "black",}, guides: false, seed: "1234",}';
+
+        parsedOptions = eval("(" + options + ")");
+        svg = blobs(parsedOptions);   
+        
+        mood.innerHTML = svg;
+
+        console.log("color slider moved, color is now " + blobColor);
       });
 
     gColorPicker
@@ -86,19 +93,17 @@ var num2hex = rgb => {
   
 
 //////////////////////////////////
-// this controls the BLOB SHAPE //
+// this controls the COMPLEXITY //
 //////////////////////////////////
 
-var data = [.8, .9, 1.0, 1.1, 1.2];
-var shapeVar
-var gShapePicker = d3
+var complexityData = [0, 1];
+var gComplexityPicker = d3
     .sliderBottom()
-    .min(d3.min(data))
-    .max(d3.max(data))
+    .min(d3.min(complexityData))
+    .max(d3.max(complexityData))
     .width(300)
-    .tickFormat(d3.format('.0%'))
-    .ticks(5)
-    .default(1.0)
+    .ticks(0)
+    .default(0.1)
     .handle(
         d3
             .symbol()
@@ -106,15 +111,19 @@ var gShapePicker = d3
             .size(200)()
     )
     .on('onchange', val => {
-        shapeVar = val;
+        complexity = val;
 
-        var blobPath = "M100.2,-72.7" + "C128.7,-8.3,150.1,45.3," + (132.2*shapeVar) + "," + (103.7*shapeVar) + "C114.3,162,57.2,225," + (-13.1*shapeVar) + "," + (232.6*shapeVar) + "C-83.4,240.2,-166.9,192.3," + (-207.6*shapeVar) + "," + (120.8*shapeVar) + "C-248.3,49.3,-246.2,-45.8," + (-204.5*shapeVar) + "," + (-117.7*shapeVar) + "C-162.8,-189.7,-81.4,-238.3," + (-22.8*shapeVar) + "," + (-225.2*shapeVar) + "C35.8,-212,71.6,-137,100.2,-72.7Z";
+        options = '{size: ' + size + ', complexity: ' + complexity + ', contrast: ' + contrast + ', color: "' + blobColor + '", stroke: { width: 0, color: "black",}, guides: false, seed: "1234",}';
 
-        console.log("shape slider moved, shapeVar is " + shapeVar);
-        blob.setAttribute("d", blobPath);
+        parsedOptions = eval("(" + options + ")");
+        svg = blobs(parsedOptions);   
+        
+        mood.innerHTML = svg;
+
+        console.log("complexity slider moved, it is now " + val);
     });
 
-var gShape = d3
+var gComplexity = d3
     .select('div#slider-shape-picker')
     .append('svg')
     .attr('width', 375)
@@ -122,9 +131,49 @@ var gShape = d3
     .append('g')
     .attr('transform', 'translate(60,50)');
 
-gShape.call(gShapePicker);
+gComplexity.call(gComplexityPicker);
 
-d3.select('p#value-shape').text(d3.format('.0%')(gShapePicker.value()));
+//////////////////////////////////
+// this controls the CONTRAST //
+//////////////////////////////////
+
+var contrastData = [0, 1];
+var gContrastPicker = d3
+    .sliderBottom()
+    .min(d3.min(contrastData))
+    .max(d3.max(contrastData))
+    .width(300)
+    .ticks(0)
+    .default(0.1)
+    .handle(
+        d3
+            .symbol()
+            .type(d3.symbolCircle)
+            .size(200)()
+    )
+    .on('onchange', val => {
+        contrast = val;
+
+        options = '{size: ' + size + ', complexity: ' + complexity + ', contrast: ' + contrast + ', color: "' + blobColor + '", stroke: { width: 0, color: "black",}, guides: false, seed: "1234",}';
+
+        parsedOptions = eval("(" + options + ")");
+        svg = blobs(parsedOptions);   
+        
+        mood.innerHTML = svg;
+
+        console.log("contrast slider moved, it is now " + val);
+    });
+
+var gContrast = d3
+    .select('div#slider-shape-picker')
+    .append('svg')
+    .attr('width', 375)
+    .attr('height', 100)
+    .append('g')
+    .attr('transform', 'translate(60,50)');
+
+    gContrast.call(gContrastPicker);
+
 
 //////////////////////////////////////
 // this controls the STICKER DRAWER //
