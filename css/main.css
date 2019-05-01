@@ -127,6 +127,7 @@ header {
     top: 752px;
     padding: 15px 0px 0px 0px;
     display: flex;
+    background: #f8f8f8;
 }
 
 .nav-icon {
@@ -139,17 +140,81 @@ header {
     position: absolute;
     bottom: 0;
     margin: auto;
+    cursor: grab;
 }
 
-.slider-color-picker, 
-.slider-shape-picker {
-    display: block; 
+#slider-color-picker, 
+#slider-shape-picker,
+#sticker-picker {
+    display: none; 
+    background: #f8f8f8;
+    width: 375px;
+    min-height: 100px;
+    max-height: 250px;
 }
 
+.sticker-img {
+    height: 100px;
+}
 
+.sticker {
+    cursor: grab;
+}
 
+.draggable {
+    position: relative;
+    z-index: 9;
+    text-align: center;
+    touch-action: none;
+    user-select: none;
+  }
 
+  #sticker-layer {
+    width: 375px;
+    height: 500px;
+    /* padding: 10px; */
+    z-index: 9;
+  }
 
+  .stack {
+      position: absolute;
+  }
+
+  .dropzone {
+    border: dashed 4px transparent;
+    transition: background-color 0.3s;
+  }
+  
+  .drop-active {
+    border-color: #aaa;
+  }
+  
+  .drop-target {
+    background-color: #29e;
+    border-color: #fff;
+    border-style: solid;
+  }
+  
+  .drag-drop {
+    display: inline-block;
+    min-width: 40px;
+    padding: 2em 0.5em;
+  
+    color: #fff;
+    background-color: #29e;
+    border: solid 2px #fff;
+  
+    touch-action: none;
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  
+    transition: background-color 0.3s;
+  }
+  
+  .drag-drop.can-drop {
+    color: #000;
+    background-color: #4e4;
+  }
 
  /* ==========================================================================
    Helper classes

@@ -21,8 +21,11 @@
   <!-- Add your site or application content here -->
 
 <header></header>
-<div id="screen">
-    <div id="mood">
+<div id="screen" >
+
+    <div id="sticker-layer" class="stack dropzone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <div id="mood" class="stack">
         <svg width="375" height="600" viewBox="100 100 375 600" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(300,300)">
             <path id="blob" d="M134.3,-82C181.6,-47.8,232.7,8.5,224.6,54.2C216.5,99.9,149.2,135.1,86.2,157C23.1,179,-35.7,187.7,-88.9,168.3C-142,149,-189.5,101.5,-205,43.8C-220.5,-13.8,-204.1,-81.7,-164.6,-114.1C-125.1,-146.4,-62.5,-143.2,-9.5,-135.6C43.5,-128,87,-116.1,134.3,-82Z" fill="#7bdcb5" stroke="none" stroke-width="0"></path>
@@ -32,15 +35,15 @@
 
 
     <div id="controls">
-        <div class="">
-                <div class="slider">
-                    <div id="slider-shape-picker"><p>shape slider test</p></div>
-                </div>
-        </div>
-        <div class="">
-            <div class="slider">
-                <div id="slider-color-picker"></div>
-            </div>
+        <div class="slider" id="slider-shape-picker"></div>
+
+        <div class="slider" id="slider-color-picker"></div>
+
+        <div id="sticker-picker" class="slider" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+            <div class="draggable"><img id="sticker-rain-img" class="sticker-img" src="img/sticker-rain.png" draggable="true" ondragstart="drag(event)" alt="rain"></div>
+
+            <div class="draggable"><img id="sticker-sad-img" class="sticker-img" src="img/sticker-sad.png" draggable="true" ondragstart="drag(event)" alt="sad face"></div>
         </div>
     </div>
 
@@ -56,9 +59,9 @@
 </div>
   
   
-  <script src="d3.js"></script>
-  <script src="d3-simple-slider"></script>
-  <script src="main.js"></script>
-
+<script src="node_modules/interactjs/dist/interact.js"></script>
+<script src="d3.js"></script>
+<script src="d3-simple-slider"></script>
+<script src="main.js"></script>
 
 </body></html>

@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@shopify/draggable": "^1.0.0-beta.8",
     "d3": "^5.9.2",
-    "d3-simple-slider": "^1.5.0"
+    "d3-simple-slider": "^1.5.0",
+    "interactjs": "^1.4.0"
   }
 }
