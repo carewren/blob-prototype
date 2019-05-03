@@ -1,0 +1,177 @@
+   html {
+    background: #f3f3f3;
+    padding: 25px;
+}
+
+#screen {
+    background: #fff;
+    box-shadow: 5px 5px 10px 1px rgba(150, 150, 150, .2);
+    margin: auto;
+    width:  375px;
+    height: 812px;
+    position: relative;
+}
+
+#controls {
+    width: 375px;
+    max-height: 250px;
+    position: absolute;
+    bottom: 60px;
+}
+
+#nav {
+    width: 375px;
+    height: 60px;
+    position: absolute;
+    bottom: 0px;
+    padding: 0px 0px 15px 0px;
+    display: flex;
+    background: #f8f8f8;
+}
+
+.nav-icon {
+    padding: 10px;
+    height: 30px;
+    margin: auto;
+}
+
+.slider {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    cursor: grab;
+}
+
+#slider-color-picker, 
+#slider-shape-picker,
+#sticker-picker {
+    display: none; 
+    background: #f8f8f8;
+    width: 375px;
+    min-height: 100px;
+    max-height: 250px;
+}
+
+#sticker-drawer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.sticker-img {
+    height: 100px;
+}
+
+.sticker-spot {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: auto;
+}
+
+.draggable {
+    position: relative;
+    z-index: 9;
+    touch-action: none;
+    user-select: none;
+  }
+
+  #sticker-layer {
+    width: 375px;
+    height: 500px;
+    z-index: 9;
+  }
+
+  .stack {
+      position: absolute;
+  }
+
+  .dropzone {
+    transition: background-color 0.3s;
+  }
+  
+  .drop-active {
+    border-color: #aaa;
+  }
+  
+  .drop-target {
+    background-color: #29e;
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+    width: 375px;
+  }
+  
+  .drag-drop {
+    display: inline-block;
+    min-width: 40px;
+    padding: 2em 0.5em;
+  
+    color: #fff;
+    background-color: #29e;
+    border: solid 2px #fff;
+  
+    touch-action: none;
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  
+    transition: background-color 0.3s;
+  }
+ 
+/* ==================================
+   Media Queries for Responsive Design
+   ==================================== */
+
+   @media only screen and (min-device-width : 320px) and (max-device-width : 480px) { 
+    
+    html {
+        padding: 0px;
+    }
+
+    #screen {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    #mood, #sticker-layer {
+        position: fixed;
+        top: 0px;
+    }
+    
+    #controls {
+        width: 100%;
+        max-height: 250px;
+        position: fixed;
+        bottom: 60px;
+    }
+    
+    #nav {
+        width: 100%;
+        height: 60px;
+        position: fixed;
+        bottom: 0px;
+        padding: 0px 0px 15px 0px;
+        display: flex;
+        background: #f8f8f8;
+    }
+    
+    #slider-color-picker, 
+    #slider-shape-picker,
+    #sticker-picker {
+        width: 100%;
+        min-height: 100px;
+        max-height: 250px;
+    }
+    
+      #sticker-layer {
+        width: 100%;
+        height: 400px;
+        z-index: 9;
+        position: absolute;
+        top: 0px;
+      }
+      
+      .drop-target {
+        width: 100%;
+      }
+}

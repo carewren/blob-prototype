@@ -1,6 +1,6 @@
-//////////////////////////////////
+////////////////////////////
 // this creates the BLOB  //
-//////////////////////////////////
+////////////////////////////
 
 var size = 375;
 var complexity = 0.1;
@@ -122,9 +122,9 @@ var gComplexity = d3
 
 gComplexity.call(gComplexityPicker);
 
-//////////////////////////////////
+////////////////////////////////
 // this controls the CONTRAST //
-//////////////////////////////////
+////////////////////////////////
 
 var contrastData = [0, 1];
 var gContrastPicker = d3
@@ -168,80 +168,46 @@ var gContrast = d3
 // this controls the STICKER DRAWER //
 //////////////////////////////////////
 
-// function allowDrop(ev) {
-//     ev.preventDefault();
-//   }
-  
-//   function drag(ev) {
-//     ev.dataTransfer.setData("text", ev.target.id);
-//   }
-  
-//   function drop(ev) {
-//     ev.preventDefault();
-//     var data = ev.dataTransfer.getData("text");
-//     ev.target.appendChild(document.getElementById(data));
-//   }
-
-
-// target elements with the "draggable" class
 interact('.draggable')
   .draggable({
-    // enable inertial throwing
     inertia: true,
-    // enable autoScroll
     autoScroll: true,
 
-    // call this function on every dragmove event
     onmove: dragMoveListener,
   });
 
   function dragMoveListener (event) {
     var target = event.target,
-        // keep the dragged position in the data-x/data-y attributes
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
-    // translate the element
     target.style.webkitTransform =
     target.style.transform =
       'translate(' + x + 'px, ' + y + 'px)';
 
-    // update the posiion attributes
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
   }
 
-  // this is used later in the resizing and gesture demos
-  window.dragMoveListener = dragMoveListener;
-
-// enable draggables to be dropped into this
 interact('.dropzone').dropzone({
-    // only accept elements matching this CSS selector
     accept: '.draggable',
-    // Require a 75% element overlap for a drop to be possible
     overlap: 0.75,
-  
-    // listen for drop related events:
-  
+    
     ondropactivate: function (event) {
-      // add active dropzone feedback
       event.target.classList.add('drop-active')
     },
     ondragenter: function (event) {
       var draggableElement = event.relatedTarget;
       var dropzoneElement = event.target;
   
-      // feedback the possibility of a drop
       dropzoneElement.classList.add('drop-target')
       draggableElement.classList.add('can-drop')
     },
     ondragleave: function (event) {
-      // remove the drop feedback style
       event.target.classList.remove('drop-target')
       event.relatedTarget.classList.remove('can-drop')
     },
     ondropdeactivate: function (event) {
-      // remove active dropzone feedback
       event.target.classList.remove('drop-active')
       event.target.classList.remove('drop-target')
     }
@@ -258,7 +224,6 @@ interact('.dropzone').dropzone({
         })
       ],
       autoScroll: true,
-      // dragMoveListener from the dragging demo above
       onmove: dragMoveListener
     });
 
@@ -342,5 +307,3 @@ navSticker.addEventListener("click", () => {
     console.log("sticker icon was clicked");
     
 });
-
-console.log("Not game over yet.");
