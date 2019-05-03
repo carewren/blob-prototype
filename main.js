@@ -269,7 +269,6 @@ interact('.dropzone').dropzone({
 var navColor = document.getElementById('color');
 var navShape = document.getElementById('shape');
 var navSticker = document.getElementById('sticker');
-var navSave = document.getElementById('save');
 
 var colorSlider = document.getElementById('slider-color-picker');
 var shapeSlider = document.getElementById('slider-shape-picker');
@@ -286,12 +285,6 @@ navShape.addEventListener("click", () => {
         navSticker.style.display = "block";
     } else {
         navSticker.style.display = "none";
-    };
-
-    if (navSave.style.display === "none") {
-        navSave.style.display = "block";
-    } else {
-        navSave.style.display = "none";
     };
 
     if (shapeSlider.style.display === "block") {
@@ -317,12 +310,6 @@ navColor.addEventListener("click", () => {
         navSticker.style.display = "none";
     };
 
-    if (navSave.style.display === "none") {
-        navSave.style.display = "block";
-    } else {
-        navSave.style.display = "none";
-    };
-
     if (colorSlider.style.display === "block") {
         colorSlider.style.display = "none";
     } else {
@@ -344,12 +331,6 @@ navSticker.addEventListener("click", () => {
         navShape.style.display = "block";
     } else {
         navShape.style.display = "none";
-    };
-
-    if (navSave.style.display === "none") {
-        navSave.style.display = "block";
-    } else {
-        navSave.style.display = "none";
     };
 
     if (stickerDrawer.style.display === "block") {

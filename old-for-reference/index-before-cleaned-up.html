@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="no-js" lang=""><head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137664462-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137664462-1');
+</script>
+
+<!-- Hotjar Tracking Code for kmakes.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1276482,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://unpkg.com/blobs"></script>
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+
+<div id="screen" >
+
+    <div id="sticker-layer" class="stack dropzone"></div>
+
+    <div id="mood" class="stack"></div>
+
+
+    <div id="controls">
+        <div class="slider" id="slider-shape-picker"></div>
+
+        <div class="slider" id="slider-color-picker"></div>
+
+        <div id="sticker-picker" class="slider">
+            <div id="sticker-drawer">
+              <div class="sticker-spot dropzone"><div class="draggable"><img id="sticker-worried-img" class="sticker-img" src="img/sticker-worried.png" alt="worried face"></div></div>
+
+              <div class="sticker-spot dropzone"><div class="draggable"><img id="sticker-sad-img" class="sticker-img" src="img/sticker-sad.png" alt="sad face"></div></div>
+
+              <div class="sticker-spot dropzone"><div class="draggable"><img id="sticker-content-img" class="sticker-img" src="img/sticker-content.png" alt="content face"></div></div>
+          </div>
+        </div>
+    </div>
+
+
+    <div id="nav">
+        <img id="color" class="nav-icon" src="img/color.svg" alt="change color"></img>
+        <img id="shape" class="nav-icon" src="img/shape.svg" alt="change shape"></img>
+        <img id="sticker" class="nav-icon" src="img/sticker.svg" alt="add stickers"></img>
+        <!-- <img id="save" class="nav-icon" src="img/download.svg" alt="save image"></img> -->
+        
+    </div>
+
+</div>
+  
+  
+<script src="node_modules/blobs/index.js"></script>
+<script src="node_modules/interactjs/dist/interact.js"></script>
+<script src="d3.js"></script>
+<script src="d3-simple-slider"></script>
+<script src="main.js"></script>
+
+
+
+</body></html>
